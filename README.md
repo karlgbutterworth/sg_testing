@@ -170,9 +170,44 @@ Once this has been completed:
 Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 ```
 
+NOTE:
+Additional `tofu apply` does NOT apply the original security group or error.
+This means that subsequent `apply` to the infrastructure WILL NOT re-apply the SG that was originally supplied.
+
+
+`tofu destroy`
+
 
 ### 4b
 
-# Results
+`tofu apply`
 
+```
+Apply complete! Resources: 16 added, 0 changed, 0 destroyed.
+```
+
+`tofu apply`
+
+```
+No changes. Your infrastructure matches the configuration.
+```
+
+Added extra rule into the SG
+
+commit: b2a97dc1a47d1158d42a82bf21d014e272050916
+commit: befdac6297aa43263f07dfdf8b5e0493fa64cdf6
+
+`tofu apply`
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+```
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+```
+
+
+# Results
+Either:
+- only associate the SGs manually to ensure that there is no destruction to instances
+- ensure that a licecycle attribute for the TF instances exists to ignore updates on the SG association. 
 
