@@ -104,7 +104,7 @@ resource "aws_instance" "instance_a" {
   ami           = "ami-07d1e0a32156d0d21"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subnet_a.id
-  # security_groups = [aws_security_group.allow_ping.id]
+  security_groups = [aws_security_group.allow_ping.id]
   key_name        = "Zenbook"
   associate_public_ip_address = true
 }
@@ -113,7 +113,7 @@ resource "aws_instance" "instance_b" {
   ami           = "ami-07d1e0a32156d0d21" 
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subnet_b.id
-  # security_groups = [aws_security_group.allow_ping.id]
+  security_groups = [aws_security_group.allow_ping.id]
   associate_public_ip_address = true
   key_name        = "Zenbook"
 }
@@ -122,7 +122,7 @@ resource "aws_instance" "instance_c" {
   ami           = "ami-07d1e0a32156d0d21" 
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subnet_c.id
-  # security_groups = [aws_security_group.allow_ping.id]
+  security_groups = [aws_security_group.allow_ping.id]
   associate_public_ip_address = true
   key_name        = "Zenbook"
 }
