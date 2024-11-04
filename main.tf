@@ -75,7 +75,14 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "vpc_attachment" {
 # Security Group
 resource "aws_security_group" "allow_ping" {
   vpc_id = aws_vpc.main_vpc.id
-  name = "SG allow ICMP"
+  name = "SG allow ICMP and HTTP"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"] # Internal CIDR for ping
+  }
 
   ingress {
     from_port   = 0
