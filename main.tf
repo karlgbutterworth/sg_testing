@@ -107,6 +107,9 @@ resource "aws_instance" "instance_a" {
   security_groups = [aws_security_group.allow_ping.id]
   key_name        = "Zenbook"
   associate_public_ip_address = true
+  lifecycle {                         
+    ignore_changes = [security_groups]
+  }                                   
 }
 
 resource "aws_instance" "instance_b" {
@@ -116,6 +119,9 @@ resource "aws_instance" "instance_b" {
   security_groups = [aws_security_group.allow_ping.id]
   associate_public_ip_address = true
   key_name        = "Zenbook"
+  lifecycle {                         
+    ignore_changes = [security_groups]
+  }                                   
 }
 
 resource "aws_instance" "instance_c" {
@@ -125,6 +131,9 @@ resource "aws_instance" "instance_c" {
   security_groups = [aws_security_group.allow_ping.id]
   associate_public_ip_address = true
   key_name        = "Zenbook"
+  lifecycle {                         
+    ignore_changes = [security_groups]
+  }                                   
 }
 
 output "public_ip_instance_a" {
