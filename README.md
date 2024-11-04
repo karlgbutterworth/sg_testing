@@ -43,6 +43,13 @@ This suggests that merely being associated with an SG directly that it will look
 commit: 870fabdeda6ba0f85f9ecfc20b1a55d11de0c48d
 
 
+## Fix option 1 (attempot)
+Disassociating the SG from the instance within TF directly and making the association manually should look to be one option to fix this
+dependancy issue. 
+
+
+
+
 
 ### 3a
 Change the security group name
