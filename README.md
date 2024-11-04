@@ -141,6 +141,36 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 Now to change the SG name - expectations are that the SG will not be able to be removed as it's attached, and ignored by the TF on the instance
  so will remain attached. 
 
+commit: 41502baeee1853d493ef3b4da0e16b73d2dbcfb5
+
+```
+  # aws_security_group.allow_ping must be replaced
+-/+ resource "aws_security_group" "allow_ping" {
+
+...
+
+      ~ name                   = "SG allow ICMP" -> "SG allow ICMP and test" # forces replacement
+        # (5 unchanged attributes hidden)
+    }
+
+...
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+```
+
+```
+ Error: deleting Security Group (sg-0ea3a4bf45c93d93f): operation error EC2: DeleteSecurityGroup, https response error StatusCode: 400, RequestID: c1e2cad1-9b70-4d0d-96f4-80287875571f, api error DependencyViolation: resource sg-0ea3a4bf45c93d93f has a dependent object
+```
+
+As expected. The only way to proceed with this is now to MANUALLY remove the SGs (A default SG *must* exist, so applying a default sg)
+
+Once this has been completed:
+
+```
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+```
+
+
 ### 4b
 
 # Results
