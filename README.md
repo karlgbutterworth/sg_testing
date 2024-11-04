@@ -41,11 +41,14 @@ Plan: 3 to add, 0 to change, 3 to destroy.
 This suggests that merely being associated with an SG directly that it will look to be rebuilt
 
 commit: 870fabdeda6ba0f85f9ecfc20b1a55d11de0c48d
+commit: c9e0b2de8ef52b7392d7563e743410b6c2bff4d5 (updated doc)
 
 
 ## Fix option 1 (attempot)
 Disassociating the SG from the instance within TF directly and making the association manually should look to be one option to fix this
 dependancy issue. 
+
+commit: c9e0b2de8ef52b7392d7563e743410b6c2bff4d5
 
 
 
