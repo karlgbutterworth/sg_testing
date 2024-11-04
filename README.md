@@ -4,18 +4,23 @@
 This tf script will create a scenario that has a few servers, a few subnets and security group implementations 
 
 ## Goal
-- 1. 3 servers on 3 subnets
-- 2. security groups in basic states to deny traffic connectivity
-- 3. Ensure that modifications to the Security groups will not trigger a terminate on any instance
-  - a. Perform update on the security group name as a "SG" modification
-  - b. Perform update on the rules pertaining to the SG
-- 4. Associated instances and SG
-  - a. Perform update on the security group name as a "SG" modification
-  - b. Perform update on the rules pertaining to the SG
+1. 3 servers on 3 subnets
+2. security groups in basic states to deny traffic connectivity
+3. Ensure that modifications to the Security groups will not trigger a terminate on any instance
+  a. Perform update on the security group name as a "SG" modification
+  b. Perform update on the rules pertaining to the SG
+4. Associated instances and SG
+  a. Perform update on the security group name as a "SG" modification
+  b. Perform update on the rules pertaining to the SG
 
 ## Execution
-### 3.
-Single main.tf for testing
+
+For testing, a single main.tf is used. 
+
+
+### 3. Ensure that modifications to the Security groups will not trigger a terminate on any instance
+
+Create a simple TF deployment and repeat the apply whilst attached to an SG:
 
 `tofu apply`
 
@@ -47,7 +52,7 @@ commit: 870fabdeda6ba0f85f9ecfc20b1a55d11de0c48d
 commit: c9e0b2de8ef52b7392d7563e743410b6c2bff4d5 (updated doc)
 
 
-## Fix option 1 (attempot)
+## Fix option 1 (attempt)
 Disassociating the SG from the instance within TF directly and making the association manually should look to be one option to fix this
 dependancy issue. 
 
